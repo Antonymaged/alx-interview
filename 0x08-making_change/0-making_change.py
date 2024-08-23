@@ -6,7 +6,7 @@
 def makeChange(coins, total):
 
     """Returns: fewest number of coins needed to get to the total"""
-     if(total <= 0):
+    if(total <= 0):
         return 0
     coins = [x for x in coins if x <= total]
     maxi = max(coins)
