@@ -13,8 +13,6 @@ def makeChange(coins, total):
     sum = 0
     ans = 0
     while sum <= total:
-        if(sum == total):
-            return ans
         while(sum + maxi > total):
             coins.remove(maxi)
             if coins == []:
@@ -22,3 +20,6 @@ def makeChange(coins, total):
             maxi = max(coins)
         sum += maxi
         ans += 1
+        if (sum == total):
+            return ans
+    return -1
