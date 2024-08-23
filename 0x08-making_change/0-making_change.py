@@ -10,16 +10,16 @@ def makeChange(coins, total):
         return -1
     if(total <= 0):
         return 0
-    sum = 0
     maxi = max(coins)
+    sumi = 0
     ans = 0
-    while sum < total:
-        while(sum + maxi > total):
+    while sumi < total:
+        while(sumi + maxi > total):
             coins.remove(maxi)
             maxi = max(coins)
-        sum += maxi
+        sumi += maxi
         ans += 1
-        if(sum == total):
+        if(sumi == total):
             return ans
 
     return -1
