@@ -4,7 +4,9 @@
 
 def makeChange(coins, total):
 
-    """Returns: fewest number of coins needed to get to te total"""
+    """Returns: fewest number of coins needed to get to the total"""
+    if not coins or coins is None:
+        return -1
     if(total <= 0):
         return 0
     sum = 0
