@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 
+"""function to return how meny coins need to get to the target"""
 
 def makeChange(coins, total):
+
+    """Returns: fewest number of coins needed to get to the total"""
+
     if(total <= 0):
         return 0
     sum = 0
