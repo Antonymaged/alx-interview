@@ -13,7 +13,7 @@ def makeChange(coins, total):
     maxi = max(coins)
     sumi = 0
     ans = 0
-    while sumi < total:
+    while sumi <= total:
         while(sumi + maxi > total):
             coins.remove(maxi)
             maxi = max(coins)
