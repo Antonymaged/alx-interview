@@ -10,6 +10,7 @@ def makeChange(coins, total):
         return -1
     if(total <= 0):
         return 0
+    coins = [x for x in coins if x <= total]
     maxi = max(coins)
     sum = 0
     ans = 0
