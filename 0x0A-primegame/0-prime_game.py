@@ -1,10 +1,12 @@
 #!/usr/bin/python3
+"""Prime game"""
 
 
 def isWinner(x, nums):
+    """determine the winner of a prime game between ben and maria"""
     if x < 1 or not nums:
         return None
-    mariasWins = 0
+    marias_wins = 0
     bensWins = 0
     n = max(nums)
     primes = [True for _ in range(1, n + 1, 1)]
