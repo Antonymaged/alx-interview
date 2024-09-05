@@ -1,25 +1,30 @@
 #!/usr/bin/python3
-"""Prime game"""
+""" Module for solving prime game question """
 
 
 def isWinner(x, nums):
-    """determine the winner of a prime game between ben and maria"""
-    if x < 1 or not nums:
+    """function that checks the winner between ben and maria"""
+    if not nums or x < 1:
         return None
-    marias_wins = 0
-    bensWins = 0
-    n = max(nums)
-    primes = [True for _ in range(1, n + 1, 1)]
-    primes[0] = False
-    for i, isPrime in enumerate(primes, 1):
-        if i == 1 or not isPrime:
+    maxn = max(nums)
+
+    fil = [True for _ in range(max(maxn + 1, 2))]
+    for i in range(2, int(pow(maxn, 0.5)) + 1):
+        if not fil[i]:
             continue
-        for j in range(i + i, n + 1, i):
-            primes[j - 1] = False
-    for _, n in zip(range(x), nums):
-        primesCount = len(list(filter(lambda x: x, primes[0: n])))
-        bensWins += primesCount % 2 == 0
-        mariasWins += primesCount % 2 == 1
-    if mariasWins == bensWins:
+        for j in range(i * i, maxn + 1, i):
+            fil[j] = False
+    fil[0] = fil[1] = False
+    y = 0
+    for i in range(len(fil)):
+        if fil[i]:
+            y += 1
+        fil[i] = y
+    player1 = 0
+    for x in nums:
+        player1 += fil[x] % 2 == 1
+    if player1 * 2 == len(nums):
         return None
-    return 'Maria' if mariasWins > bensWins else 'Ben'
+    if player1 * 2 > len(nums):
+        return "Maria"
+    return "Ben"
